@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ id }} Event detail page</h1>
+<a href="{{ url_for('event.event_users', id=id) }}">Users of this event</a>
+{% endblock %}

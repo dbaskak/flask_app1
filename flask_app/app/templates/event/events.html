@@ -1,0 +1,19 @@
+{% for event in events.items %}
+  <h2>{{ event.title }}</h2>
+  <p>{{ event.description }}</p>
+  <p>Start Date: {{ event.start_date }}</p>
+  <p>End Date: {{ event.end_date }}</p>
+  {% if not event.full and not event.registered %}
+    <form action="{{ url_for('register_event', id=event.id) }}" method="post">
+      <button type="submit">Register</button>
+    </form>
+  {% endif %}
+{% endfor %}
+
+{% if events.has_prev %}
+  <a href="?page={{ events.prev_num }}&size={{ events.per_page }}">Prev</a>
+{% endif %}
+
+{% if events.has_next %}
+  <a href="?page={{ events.next_num }}&size={{ events.per_page }}">Next</a>
+{% endif %}

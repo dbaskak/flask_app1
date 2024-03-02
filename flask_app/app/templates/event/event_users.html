@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ id }} Event users list</h1>
+<ul>
+    {% for key, value in query_params.items() %}
+        <li>{{ key }}: {{ value }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
